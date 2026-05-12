@@ -2,30 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Product Cards</title>
+    <title>Filtering</title>
     <style>
       body {
         font-family: sans-serif;
         padding: 20px;
+      }
+      input {
+        padding: 8px 12px;
+        width: 280px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
       }
       .card {
         border: 1px solid #ccc;
         border-radius: 8px;
         padding: 16px;
         margin-bottom: 12px;
-        width: 250px;
+        width: 280px;
       }
       .name {
         font-weight: bold;
-        font-size: 18px;
+        margin: 0 0 4px;
       }
-      .price {
+      .status {
         color: #555;
+        margin: 0;
       }
     </style>
   </head>
   <body>
+    <h2>Products</h2>
+    <input type="text" id="searchInput" placeholder="Search products..." />
     <div id="productList"></div>
-    <script src="script.js"></script>
+
+    <script src="week4-session2-filtering.js"></script>
   </body>
 </html>

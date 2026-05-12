@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Product Cards</title>
+    <title>Rendering</title>
     <style>
       body {
         font-family: sans-serif;
@@ -13,19 +13,26 @@
         border-radius: 8px;
         padding: 16px;
         margin-bottom: 12px;
-        width: 250px;
+        width: 280px;
       }
       .name {
         font-weight: bold;
-        font-size: 18px;
+        font-size: 16px;
+        margin: 0 0 4px;
       }
-      .price {
+      .status {
         color: #555;
+        margin: 0;
       }
     </style>
   </head>
   <body>
-    <div id="productList"></div>
-    <script src="script.js"></script>
+    <h2>Team List</h2>
+    <ul id="teamList"></ul>
+
+    <h2>Product Cards</h2>
+    <div id="productCards"></div>
+
+    <script src="week4-session1-rendering.js"></script>
   </body>
 </html>

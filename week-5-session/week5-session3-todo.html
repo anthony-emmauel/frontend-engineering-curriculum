@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>To-Do App</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+        max-width: 400px;
+      }
+      input {
+        padding: 8px;
+        width: 70%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        padding: 8px 16px;
+        cursor: pointer;
+        margin-left: 4px;
+      }
+      .filters {
+        display: flex;
+        gap: 8px;
+        margin: 16px 0;
+      }
+      .todo-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        margin-bottom: 8px;
+      }
+      .completed span {
+        text-decoration: line-through;
+        color: #aaa;
+      }
+      .delete {
+        background: red;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 4px 8px;
+        cursor: pointer;
+      }
+      .active-filter {
+        background: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>To-Do List</h2>
+    <input type="text" id="todoInput" placeholder="Add a task..." />
+    <button id="addBtn">Add</button>
+    <div class="filters">
+      <button id="btnAll">All</button>
+      <button id="btnActive">Active</button>
+      <button id="btnCompleted">Completed</button>
+    </div>
+    <div id="todoList"></div>
+    <script src="week5-session3-todo.js"></script>
+  </body>
+</html>

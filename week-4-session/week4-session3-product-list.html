@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product List</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+      input {
+        padding: 8px 12px;
+        width: 280px;
+        margin-bottom: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      .filters {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+      button {
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        cursor: pointer;
+        background: white;
+      }
+      button.active {
+        background: black;
+        color: white;
+      }
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 12px;
+        width: 280px;
+      }
+      .name {
+        font-weight: bold;
+        margin: 0 0 4px;
+      }
+      .price {
+        color: #555;
+        margin: 0 0 4px;
+      }
+      .badge {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+      }
+      .available {
+        background: #d4edda;
+        color: #155724;
+      }
+      .out-of-stock {
+        background: #f8d7da;
+        color: #721c24;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Product List</h2>
+    <input type="text" id="searchInput" placeholder="Search products..." />
+    <div class="filters">
+      <button id="btnAll" class="active">All</button>
+      <button id="btnAvailable">Available</button>
+      <button id="btnOutOfStock">Out of Stock</button>
+    </div>
+    <div id="productList"></div>
+
+    <script src="week4-session3-product-list.js"></script>
+  </body>
+</html>
