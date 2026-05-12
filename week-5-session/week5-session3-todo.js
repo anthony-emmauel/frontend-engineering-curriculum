@@ -33,7 +33,15 @@ const render = () => {
   const container = document.getElementById("todoList");
   container.innerHTML = "";
 
-  state.todos.forEach((todo) => {
+  let filtered = state.todos;
+  if (state.filter === "active") {
+    filtered = state.todos.filter((todo) => !todo.completed);
+  }
+  if (state.filter === "completed") {
+    filtered = state.todos.filter((todo) => todo.completed);
+  }
+
+  filtered.forEach((todo) => {
     const item = document.createElement("div");
     item.className = "todo-item";
     if (todo.completed) {
@@ -63,3 +71,28 @@ const render = () => {
     container.appendChild(item);
   });
 };
+
+document.getElementById("addBtn").addEventListener("click", () => {
+  const value = document.getElementById("todoInput").value;
+  if (value === "") return; // don't add empty todos
+  state.todos = [...state.todos, { text: value, completed: false }];
+  document.getElementById("todoInput").value = "";
+  render();
+});
+
+render();
+
+document.getElementById("btnAll").addEventListener("click", () => {
+  state.filter = "all";
+  render();
+});
+
+document.getElementById("btnActive").addEventListener("click", () => {
+  state.filter = "active";
+  render();
+});
+
+document.getElementById("btnCompleted").addEventListener("click", () => {
+  state.filter = "completed";
+  render();
+});
