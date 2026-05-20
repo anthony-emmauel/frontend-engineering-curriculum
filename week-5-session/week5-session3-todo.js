@@ -96,3 +96,26 @@ document.getElementById("btnCompleted").addEventListener("click", () => {
   state.filter = "completed";
   render();
 });
+
+const events = [
+  { name: "Lagos Vibes", status: "active" },
+  { name: "Abuja Nite", status: "cancelled" },
+  { name: "PHC Connect", status: "active" },
+];
+
+const renderEvents = () => {
+  const container = document.createElement("div");
+  container.innerHTML = "";
+
+  events.forEach((event) => {
+    const card = document.createElement("card");
+    const eventName = document.createElement("p");
+    eventName.textContent = event.name;
+
+    const eventStatus = document.createElement("p");
+    eventStatus.textContent = event.status;
+  });
+};
+container.append(card);
+
+renderEvents();
