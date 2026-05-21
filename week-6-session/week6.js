@@ -77,6 +77,12 @@ const renderKPICards = () => {
 };
 renderKPICards();
 
+const createTransactionElement = (label, value) => {
+  const paragraph = document.createElement("p");
+  paragraph.textContent = `${label}: ${value}`;
+  return paragraph;
+};
+
 const renderTransactions = (data) => {
   const transactionsContainer = document.getElementById(
     "transaction-container",
@@ -86,22 +92,20 @@ const renderTransactions = (data) => {
   data.forEach((transaction) => {
     const transactionCard = document.createElement("div");
 
-    const nameOfStudent = document.createElement("p");
-    nameOfStudent.textContent = `Name of student: ${transaction.studentName}`;
+    transactionCard.appendChild(
+      createTransactionElement("Name of student", transaction.studentName),
+    );
 
-    const amountPaid = document.createElement("p");
-    amountPaid.textContent = `Amount paid: ${transaction.amountPaid}`;
+    transactionCard.appendChild(
+      createTransactionElement("Amount paid", transaction.amountPaid),
+    );
 
-    const amountOwe = document.createElement("p");
-    amountOwe.textContent = `Amount owed: ${transaction.amountOwe}`;
-
-    const studentClass = document.createElement("p");
-    studentClass.textContent = `Class ${transaction.class}`;
-
-    transactionCard.appendChild(nameOfStudent);
-    transactionCard.appendChild(amountPaid);
-    transactionCard.appendChild(amountOwe);
-    transactionCard.appendChild(studentClass);
+    transactionCard.appendChild(
+      createTransactionElement("Amount owe", transaction.amountOwe),
+    );
+    transactionCard.appendChild(
+      createTransactionElement("Student class", transaction.class),
+    );
     transactionsContainer.appendChild(transactionCard);
   });
 };
