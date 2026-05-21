@@ -69,13 +69,13 @@ const transactions = [
   },
 ];
 
-const renderTransactions = () => {
+const renderTransactions = (data) => {
   const transactionsContainer = document.getElementById(
     "transaction-container",
   );
   transactionsContainer.innerHTML = "";
 
-  transactions.forEach((transaction) => {
+  data.forEach((transaction) => {
     const transactionCard = document.createElement("div");
 
     const nameOfStudent = document.createElement("p");
@@ -102,4 +102,25 @@ const renderTransactions = () => {
   });
 };
 
-renderTransactions();
+document.getElementById("filter-btn").addEventListener("click", () => {
+  const owing = transactions.filter(
+    (transaction) => transaction.owing === true,
+  );
+  renderTransactions(owing);
+});
+
+renderTransactions(transactions);
+
+const renderTotal = () => {
+  const totalContainer = document.getElementById("total-container");
+  totalContainer.innerHTML = "";
+
+  const total = transactions.reduce((acc, current) => {
+    return acc + current.amountPaid;
+  }, 0);
+
+  const totalAmountPaid = document.createElement("div");
+  totalAmountPaid.textContent = `Total Amount: ${total}`;
+
+  totalContainer.appendChild(totalAmountPaid);
+};
