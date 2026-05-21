@@ -5,32 +5,6 @@ const dashboardStats = {
   studentPaidFee: 6600,
 };
 
-const renderKPICards = () => {
-  const container = document.getElementById("kpi-container");
-  container.innerHTML = "";
-
-  const card = document.createElement("div");
-
-  const numberOfStudent = document.createElement("div");
-  numberOfStudent.textContent = `Number of student: ${dashboardStats.numberOfStudent}`;
-
-  const weeklyReturn = document.createElement("div");
-  weeklyReturn.textContent = `Weekly return: ${dashboardStats.weeklyReturn}`;
-
-  const averageReturn = document.createElement("div");
-  averageReturn.textContent = `Average return: ${dashboardStats.averageReturn}`;
-
-  const studentPaidFee = document.createElement("div");
-  studentPaidFee.textContent = `Number of student that have paid fees: ${dashboardStats.studentPaidFee}`;
-
-  card.appendChild(numberOfStudent);
-  card.appendChild(weeklyReturn);
-  card.appendChild(averageReturn);
-  card.appendChild(studentPaidFee);
-  container.appendChild(card);
-};
-renderKPICards();
-
 const transactions = [
   {
     studentName: "Ojo",
@@ -69,6 +43,40 @@ const transactions = [
   },
 ];
 
+const createStatElement = (label, value) => {
+  const el = document.createElement("div");
+  el.textContent = `${label}: ${value}`;
+  return el;
+};
+
+const renderKPICards = () => {
+  const container = document.getElementById("kpi-container");
+  container.innerHTML = "";
+
+  const card = document.createElement("div");
+
+  card.appendChild(
+    createStatElement("Number of students", dashboardStats.numberOfStudent),
+  );
+
+  card.appendChild(
+    createStatElement("Weekly return", dashboardStats.weeklyReturn),
+  );
+
+  card.appendChild(
+    createStatElement("Average return", dashboardStats.averageReturn),
+  );
+
+  card.appendChild(
+    createStatElement(
+      "Number of students that have paid",
+      dashboardStats.studentPaidFee,
+    ),
+  );
+  container.appendChild(card);
+};
+renderKPICards();
+
 const renderTransactions = (data) => {
   const transactionsContainer = document.getElementById(
     "transaction-container",
@@ -90,14 +98,10 @@ const renderTransactions = (data) => {
     const studentClass = document.createElement("p");
     studentClass.textContent = `Class ${transaction.class}`;
 
-    // const isOwing = document.createElement("p");
-    // isOwing.textContent = transaction.owing;
-
     transactionCard.appendChild(nameOfStudent);
     transactionCard.appendChild(amountPaid);
     transactionCard.appendChild(amountOwe);
     transactionCard.appendChild(studentClass);
-    // transactionCard.appendChild(isOwing);
     transactionsContainer.appendChild(transactionCard);
   });
 };
@@ -124,3 +128,4 @@ const renderTotal = () => {
 
   totalContainer.appendChild(totalAmountPaid);
 };
+renderTotal();
