@@ -30,3 +30,76 @@ const renderKPICards = () => {
   container.appendChild(card);
 };
 renderKPICards();
+
+const transactions = [
+  {
+    studentName: "Ojo",
+    amountPaid: 5000,
+    amountOwe: 7000,
+    class: "Jss1",
+    owing: true,
+  },
+  {
+    studentName: "Precious",
+    amountPaid: 12000,
+    amountOwe: 0,
+    class: "Jss1",
+    owing: false,
+  },
+  {
+    studentName: "King",
+    amountPaid: 2000,
+    amountOwe: 10000,
+    class: "Jss1",
+    owing: true,
+  },
+  {
+    studentName: "Martha",
+    amountPaid: 12000,
+    amountOwe: 0,
+    class: "Jss3",
+    owing: false,
+  },
+  {
+    studentName: "Bernard",
+    amountPaid: 5000,
+    amountOwe: 7000,
+    class: "Jss1",
+    owing: true,
+  },
+];
+
+const renderTransactions = () => {
+  const transactionsContainer = document.getElementById(
+    "transaction-container",
+  );
+  transactionsContainer.innerHTML = "";
+
+  transactions.forEach((transaction) => {
+    const transactionCard = document.createElement("div");
+
+    const nameOfStudent = document.createElement("p");
+    nameOfStudent.textContent = `Name of student: ${transaction.studentName}`;
+
+    const amountPaid = document.createElement("p");
+    amountPaid.textContent = `Amount paid: ${transaction.amountPaid}`;
+
+    const amountOwe = document.createElement("p");
+    amountOwe.textContent = `Amount owed: ${transaction.amountOwe}`;
+
+    const studentClass = document.createElement("p");
+    studentClass.textContent = `Class ${transaction.class}`;
+
+    // const isOwing = document.createElement("p");
+    // isOwing.textContent = transaction.owing;
+
+    transactionCard.appendChild(nameOfStudent);
+    transactionCard.appendChild(amountPaid);
+    transactionCard.appendChild(amountOwe);
+    transactionCard.appendChild(studentClass);
+    // transactionCard.appendChild(isOwing);
+    transactionsContainer.appendChild(transactionCard);
+  });
+};
+
+renderTransactions();
