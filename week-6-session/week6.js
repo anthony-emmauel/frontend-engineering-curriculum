@@ -1,3 +1,4 @@
+//----Data-----
 const dashboardStats = {
   numberOfStudent: 9000,
   weeklyReturn: 4500,
@@ -43,12 +44,20 @@ const transactions = [
   },
 ];
 
+//---Helpers-----
 const createStatElement = (label, value) => {
   const el = document.createElement("div");
   el.textContent = `${label}: ${value}`;
   return el;
 };
 
+const createTransactionElement = (label, value) => {
+  const paragraph = document.createElement("p");
+  paragraph.textContent = `${label}: ${value}`;
+  return paragraph;
+};
+
+//---renders functions---
 const renderKPICards = () => {
   const container = document.getElementById("kpi-container");
   container.innerHTML = "";
@@ -74,13 +83,6 @@ const renderKPICards = () => {
     ),
   );
   container.appendChild(card);
-};
-renderKPICards();
-
-const createTransactionElement = (label, value) => {
-  const paragraph = document.createElement("p");
-  paragraph.textContent = `${label}: ${value}`;
-  return paragraph;
 };
 
 const renderTransactions = (data) => {
@@ -110,15 +112,6 @@ const renderTransactions = (data) => {
   });
 };
 
-document.getElementById("filter-btn").addEventListener("click", () => {
-  const owing = transactions.filter(
-    (transaction) => transaction.owing === true,
-  );
-  renderTransactions(owing);
-});
-
-renderTransactions(transactions);
-
 const renderTotal = () => {
   const totalContainer = document.getElementById("total-container");
   totalContainer.innerHTML = "";
@@ -132,4 +125,26 @@ const renderTotal = () => {
 
   totalContainer.appendChild(totalAmountPaid);
 };
+
+//---event listeners---
+
+const handleFilterOwing = () => {
+  const owing = transactions.filter(
+    (transaction) => transaction.owing === true,
+  );
+  renderTransactions(owing);
+};
+
+document
+  .getElementById("filter-btn")
+  .addEventListener("click", handleFilterOwing);
+
+const showAllButton = document.getElementById("show-all");
+showAllButton.addEventListener("click", () => {
+  renderTransactions(transactions);
+});
+
+//--- init ---
+renderKPICards();
 renderTotal();
+renderTransactions(transactions);
