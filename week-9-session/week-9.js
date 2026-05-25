@@ -11,6 +11,22 @@ const student = {
 const { studentName, amountPaid, owing } = student;
 console.log(studentName, amountPaid, owing);
 
+// spread
+const jssStudents = ["Adaeze", "Emeka", "Chukwudi", "Aisha"];
+const sssStudents = ["Fatima", "Ngozi", "Tunde", "Obinna"];
+
+const studentNew = {
+  studentName: "Aisha Musa",
+  amountPaid: 15000,
+  amountOwe: 30000,
+};
+
+const allStudent = [...jssStudents, ...sssStudents];
+console.log(allStudent);
+
+const updatedStudent = { ...studentNew, amountPaid: 45000, amountOwe: 0 };
+console.log(updatedStudent);
+
 //---data---
 const dashboardStats = {
   totalStudents: 847,
@@ -75,6 +91,23 @@ const transactions = [
     amountOwe: 0,
     class: "SSS1",
     owing: false,
+  },
+];
+
+const archivedTransactions = [
+  {
+    studentName: "Kemi Adeyemi",
+    amountPaid: 35000,
+    amountOwe: 0,
+    class: "SSS1",
+    owing: false,
+  },
+  {
+    studentName: "Biodun Lawson",
+    amountPaid: 12000,
+    amountOwe: 33000,
+    class: "JSS2",
+    owing: true,
   },
 ];
 
@@ -153,11 +186,11 @@ const renderTotalcard = () => {
   const totalLabel = document.createElement("h3");
   totalLabel.textContent = "Total number of fees paid";
 
+  const combineTransaction = [...transactions, ...archivedTransactions];
   const totalValue = document.createElement("p");
-  totalValue.textContent = transactions.reduce((acc, current) => {
+  totalValue.textContent = combineTransaction.reduce((acc, current) => {
     return acc + current.amountPaid;
   }, 0);
-
   totalContainer.appendChild(totalLabel);
   totalContainer.appendChild(totalValue);
 };
