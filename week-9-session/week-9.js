@@ -27,6 +27,18 @@ console.log(allStudent);
 const updatedStudent = { ...studentNew, amountPaid: 45000, amountOwe: 0 };
 console.log(updatedStudent);
 
+// optional chaining & nullish coalescing
+const studentOld = {
+  studentName: "Chukwudi Eze",
+  amountPaid: 10000,
+  contact: {
+    phone: null,
+    email: "chukwudi@school.ng",
+  },
+};
+
+const newInfoResult = studentOld.contact?.phone ?? "No phone number";
+console.log(newInfoResult);
 //---data---
 const dashboardStats = {
   totalStudents: 847,
@@ -143,7 +155,7 @@ const createTransactionElement = (
   nameOfStudent.textContent = `${studentName}`;
 
   const oweAmount = document.createElement("p");
-  oweAmount.textContent = `${amountOwe}`;
+  oweAmount.textContent = `${amountOwe ?? "No balance"}`;
 
   const paidAmount = document.createElement("p");
   paidAmount.textContent = `${amountPaid}`;

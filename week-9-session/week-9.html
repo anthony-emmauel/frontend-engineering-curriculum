@@ -5,7 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      padding: 32px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: #0f172a;
+    }
+
+    /* KPI Cards */
+    #kpi-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .kpi-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .kpi-label {
+      font-size: 12px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .kpi-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    /* Toolbar */
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+
+    .toolbar span {
+      font-size: 14px;
+      color: #64748b;
+      margin-right: auto;
+    }
+
+    button {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    #filter-btn {
+      background: #ef4444;
+      color: white;
+    }
+
+    #show-all {
+      background: #3b82f6;
+      color: white;
+    }
+
+    /* Total */
+    #total-container {
+      margin-bottom: 16px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    /* Transaction list */
+    #transaction-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .transaction-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .transaction-card p {
+      font-size: 14px;
+      color: #334155;
+      margin: 0;
+    }
+
+    .transaction-card p span {
+      display: block;
+      font-size: 11px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 2px;
+    }
+  </style>
   <body>
+    <h1>School Fee Dashboard</h1>
+
+    <div id="kpi-container"></div>
+
+    <div class="toolbar">
+      <span id="result-count"></span>
+      <button id="show-all">Show All</button>
+      <button id="filter-btn">Show Owing</button>
+    </div>
+
+    <div id="total-container"></div>
+    <div id="transaction-container"></div>
     <script src="week-9.js"></script>
   </body>
 </html>
