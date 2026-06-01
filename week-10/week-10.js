@@ -41,30 +41,6 @@
 // console.log(newInfoResult);
 
 //async JS
-const statusContainer = document.getElementById("status");
-statusContainer.textContent = "Loading dashboard....";
-
-setTimeout(() => {
-  statusContainer.textContent = "";
-  renderKPICards();
-  renderTotalcard();
-}, 1500);
-
-const fetchStudentData = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(transactions);
-    }, 2000);
-  });
-};
-
-fetchStudentData()
-  .then((render) => {
-    renderTransactions(render);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
 
 //---data---
 const dashboardStats = {
@@ -254,6 +230,33 @@ const renderTransactions = (data) => {
     );
   });
 };
+
+const statusContainer = document.getElementById("status");
+statusContainer.textContent = "Loading dashboard....";
+
+setTimeout(() => {
+  statusContainer.textContent = "";
+  renderKPICards();
+  renderTotalcard();
+}, 1500);
+
+const fetchStudentData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(transactions);
+    }, 2000);
+  });
+};
+
+const loadDashboard = async () => {
+  try {
+    const dataRender = await fetchStudentData();
+    renderTransactions(dataRender);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 //----add event listeners----
 const handleFilterOwing = () => {
   const filteredData = transactions.filter(
@@ -269,3 +272,5 @@ document
 document.getElementById("show-all").addEventListener("click", () => {
   renderTransactions(transactions);
 });
+
+loadDashboard();
