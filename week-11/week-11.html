@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User Directory</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f1f5f9;
+        padding: 32px;
+      }
+      h1 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 24px;
+        color: #0f172a;
+      }
+      #status {
+        margin-bottom: 16px;
+        font-size: 14px;
+        color: #64748b;
+      }
+      #user-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .user-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 16px 20px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      }
+      .user-card h3 {
+        font-size: 16px;
+        color: #0f172a;
+        margin-bottom: 4px;
+      }
+      .user-card p {
+        font-size: 14px;
+        color: #64748b;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>User Directory</h1>
+    <div id="status"></div>
+    <div id="user-container"></div>
+    <script src="week11.js"></script>
+  </body>
+</html>
