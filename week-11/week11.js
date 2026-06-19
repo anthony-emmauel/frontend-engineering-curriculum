@@ -46,6 +46,8 @@ const createUserCard = (name, email, phone) => {
 };
 
 const fetchUser = async () => {
+  const statusContainer = document.getElementById("status");
+  statusContainer.textContent = "Loading users.....";
   try {
     const api = await fetch("https://jsonplaceholder.typicode.com/users");
     const apiData = await api.json();
@@ -58,8 +60,9 @@ const fetchUser = async () => {
       });
     };
     renderCard(apiData);
+    statusContainer.textContent = "";
   } catch (error) {
-    console.log(error);
+    statusContainer.textContent = "Something went wrong. Please try again.";
   }
 };
 fetchUser();
