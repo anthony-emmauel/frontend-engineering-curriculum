@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Week 12 - Forms + localStorage</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f1f5f9;
+        padding: 32px;
+      }
+      h1 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 24px;
+        color: #0f172a;
+      }
+
+      .form-group {
+        margin-bottom: 16px;
+      }
+      label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 6px;
+        color: #374151;
+      }
+      input {
+        width: 100%;
+        max-width: 400px;
+        padding: 10px 14px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+      }
+      input:focus {
+        border-color: #3b82f6;
+      }
+
+      button {
+        padding: 10px 20px;
+        background: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        margin-top: 8px;
+      }
+      button:hover {
+        opacity: 0.85;
+      }
+
+      #user-list {
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 400px;
+      }
+      .user-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 16px 20px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      }
+      .user-card h3 {
+        font-size: 15px;
+        color: #0f172a;
+        margin-bottom: 4px;
+      }
+      .user-card p {
+        font-size: 13px;
+        color: #64748b;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>User Registry</h1>
+
+    <div class="form-group">
+      <label for="name-input">Name</label>
+      <input type="text" id="name-input" placeholder="Enter name" />
+    </div>
+
+    <div class="form-group">
+      <label for="email-input">Email</label>
+      <input type="email" id="email-input" placeholder="Enter email" />
+    </div>
+
+    <button id="save-btn">Save User</button>
+
+    <div id="user-list"></div>
+
+    <script src="week12.js"></script>
+  </body>
+</html>
