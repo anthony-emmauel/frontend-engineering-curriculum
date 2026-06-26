@@ -17,10 +17,18 @@ const renderUsers = () => {
 };
 
 document.getElementById("save-btn").addEventListener("click", () => {
+  const errorMsg = document.getElementById("error-msg");
   const nameInput = document.getElementById("name-input");
+  const emailInput = document.getElementById("email-input");
+  if (nameInput.value === "" || emailInput.value === "") {
+    errorMsg.textContent = "Please fill in all fields";
+    return;
+  } else {
+    errorMsg.textContent = "";
+  }
   localStorage.setItem("name", nameInput.value);
   localStorage.getItem("name");
-  const emailInput = document.getElementById("email-input");
+
   localStorage.setItem("email", emailInput.value);
   localStorage.getItem("email");
   users.push({ name: nameInput.value, email: emailInput.value });
